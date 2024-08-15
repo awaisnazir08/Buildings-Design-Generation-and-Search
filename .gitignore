@@ -9,3 +9,4 @@ __pycache__/config.cpython-311.pyc
 __pycache__
 .gitignore
 Milvus files/executable.txt
+generated_images
