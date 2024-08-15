@@ -2,3 +2,10 @@
 /Model
 /sketches_images
 /Test Pictures
+__pycache__/utils.cpython-311.pyc
+Milvus files/executable.txt
+.gitignore
+__pycache__/config.cpython-311.pyc
+__pycache__
+.gitignore
+Milvus files/executable.txt
