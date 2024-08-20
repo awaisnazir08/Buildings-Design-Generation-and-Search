@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sketch Image Upload</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Sketch</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="sketch" accept="image/*" required>
+            <input type="submit" value="Upload">
+        </form>
+        
+        {% if original_image %}
+            <div class="results">
+                <h2>Results</h2>
+                <h3>Uploaded Sketch</h3>
+                <img src="{{ url_for('static', filename=original_image) }}" alt="Uploaded Sketch">
+                
+                <h3>Generated Real Sketch</h3>
+                <img src="{{ url_for('static', filename=generated_image) }}" alt="Generated Real Sketch">
+                
+                <h3>Matching Images</h3>
+                {% for image in matching_images %}
+                    <img src="{{ url_for('static', filename=image) }}" alt="Matching Image">
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

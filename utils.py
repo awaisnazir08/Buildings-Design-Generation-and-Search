@@ -1,8 +1,11 @@
 import torch
 from .config import DEVICE
 from torchvision.utils import save_image
+import os
 
 def save_some_examples(gen, val_loader, epoch, folder):
+    if not os.path.exists:
+        os.makedirs(folder, exist_ok=True)
     x, y = next(iter(val_loader))
     x, y = x.to(DEVICE), y.to(DEVICE)
     gen.eval()

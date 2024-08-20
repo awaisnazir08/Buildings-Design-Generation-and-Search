@@ -6,7 +6,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from .discriminator import Discriminator
 from .generator import Generator
-from .config import LEARNING_RATE, DEVICE, CHECKPOINT_DISC, CHECKPOINT_GEN, CHANNELS_IMG, transform
+from .config import LEARNING_RATE, DEVICE, CHECKPOINT_DISC, CHECKPOINT_GEN, CHANNELS_IMG, transform_512
 import torch.optim as optim
 from .utils import load_checkpoint
 from torchvision.utils import save_image
@@ -20,7 +20,7 @@ generator.eval()
 load_checkpoint(CHECKPOINT_GEN, generator, optimizer_gen, lr=LEARNING_RATE)
 
 input_dir = 'Pix2Pix_Buildings/sketches_images'
-output_dir = 'Pix2Pix_Buildings/generated_images'
+output_dir = 'Pix2Pix_Buildings/generated_images_512'
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir, exist_ok=True)
@@ -31,7 +31,7 @@ for image in images:
     image_path = os.path.join(input_dir, image)
     input_image = np.array(Image.open(image_path))
 
-    transformed_input = transform(image=input_image)["image"].unsqueeze(0).to(DEVICE)
+    transformed_input = transform_512(image=input_image)["image"].unsqueeze(0).to(DEVICE)
 
     # Perform inference with the generator
     with torch.no_grad():
