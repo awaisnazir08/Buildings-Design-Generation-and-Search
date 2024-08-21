@@ -16,8 +16,21 @@ search_params:
     nprobe: 20
 
 database:
-  database_name: "Products"
-  products_collection: "products"
-  images_collection: 'images'
+  database_name: "Building_Designs"
+  buildings_collection: "designs"
 
-model_name: 'open_clip:ViT-B-16'
+model_name: 'ViT-L/14@336px'
+
+model:
+  LEARNING_RATE: 2e-4
+  BATCH_SIZE: 24
+  NUM_WORKERS : 2
+  IMAGE_SIZE: 256
+  CHANNELS_IMG: 3
+  L1_LAMBDA: 100
+  LAMBDA_GP: 100
+  NUM_EPOCHS: 351
+  LOAD_MODEL: False
+  SAVE_MODEL: True
+  CHECKPOINT_DISC:  'App/Model_checkpoint/Model/_512/disc.pth.tar'
+  CHECKPOINT_GEN: 'App/Model_checkpoint/Model_512/gen.pth.tar'

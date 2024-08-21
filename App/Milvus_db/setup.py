@@ -1,6 +1,6 @@
 import yaml
 from pymilvus import utility, db, Collection, connections
-# from ..utils.helper_utils import load_config
+from ..utils.helper_utils import load_config
 class MilvusManager:
     def __init__(self):
         self.config = load_config()
@@ -48,15 +48,12 @@ class MilvusManager:
         self._use_database()
         self.list_collections()
         
-        self.products_collection = self._get_collection(self.config['database']['products_collection'])
-        self._create_index(self.products_collection, "title_vector")
-        self._load_collection(self.products_collection)
+        self.buildings_collection = self._get_collection(self.config['database']['buildings_collection'])
+        self._create_index(self.buildings_collection, "building_sketch_embedding")
+        self._create_index(self.buildings_collection, 'building_generated_image_embedding')
+        self._load_collection(self.buildings_collection)
         
-        self.images_collection = self._get_collection(self.config['database']['images_collection'])
-        self._create_index(self.images_collection, "image_vector")
-        self._load_collection(self.images_collection)
-        
-        return self.products_collection, self.images_collection, self.search_params
+        return self.buildings_collection, self.search_params
     
     def drop_index(self, collection):
         collection.drop_index()

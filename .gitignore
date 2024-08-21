@@ -13,3 +13,13 @@ generated_images_256
 generated_images_512
 Model_512
 Model_256
+App/__pycache__
+App/static
+App/Embeddings/__pycache__
+App/Embeddings_model/__pycache__
+App/Generator_Model/__pycache__
+App/Inference/__pycache__
+App/Model_checkpoint/__pycache__
+App/utils/__pycache__
+App/Milvus_db/__pycache__
+
