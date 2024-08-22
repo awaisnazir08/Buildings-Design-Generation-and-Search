@@ -16,14 +16,14 @@
             <div class="results">
                 <h2>Results</h2>
                 <h3>Uploaded Sketch</h3>
-                <img src="{{ url_for('static', filename=original_image) }}" alt="Uploaded Sketch">
+                <img src="{{ url_for('static', filename='uploads/' + original_image) }}" alt="Uploaded Sketch">
                 
                 <h3>Generated Real Sketch</h3>
-                <img src="{{ url_for('static', filename=generated_image) }}" alt="Generated Real Sketch">
+                <img src="{{ url_for('static', filename='generated/' + generated_image) }}" alt="Generated Real Sketch">
                 
                 <h3>Matching Images</h3>
                 {% for image in matching_images %}
-                    <img src="{{ url_for('static', filename=image) }}" alt="Matching Image">
+                    <img src="{{ url_for('matching_images', filename=image) }}" alt="Matching Image">
                 {% endfor %}
             </div>
         {% endif %}

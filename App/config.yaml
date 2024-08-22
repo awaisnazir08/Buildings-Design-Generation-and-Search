@@ -13,7 +13,7 @@ search_params:
   offset: 0
   ignore_growing: False
   params:
-    nprobe: 20
+    nprobe: 10
 
 database:
   database_name: "Building_Designs"
